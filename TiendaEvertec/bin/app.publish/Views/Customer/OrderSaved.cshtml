@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "OrderSaved";
+}
+
+<h2>Orden Generada Correctamente</h2>
+
+<div>
+    <p>
+        ¡Felicitaciones! El pago de su orden ha sido procesado correctamente y ya iniciamos el empaque de su compra.
+        <br />En los proximos dias estará recibiendo su pedido
+    </p>
+
+    <br />
+
+    @{
+        Html.RenderPartial("FullOrderDetail");
+    }
+
+    <div>
+        @Html.ActionLink("Volver al menu", "Index", "Customer", null, htmlAttributes: new { @class = "btn btn-default" })
+    </div>
+
+</div>
+
+
+

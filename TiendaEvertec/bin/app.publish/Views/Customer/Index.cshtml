@@ -1,0 +1,62 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<style>
+    .courses__list {
+        padding: 2rem 0;
+        text-align: center;
+        width: 90%;
+        margin: 0 auto;
+        height: 683px;
+    }
+    .row {
+        display: flex;
+    }
+    .center {
+        justify-content: center;
+    }
+    .middle {
+        align-items: center;
+    }
+    .wrap {
+        flex-wrap: wrap;
+    }
+    .course {
+        width: 43% !important;
+        padding: 1rem;
+        background: white;
+        height: 43%;
+    }
+    .title {
+        font-family: Rockwell;
+        color: #628498;
+    }
+    .margin-left{
+        margin-left: 25%;
+    }
+    .btn-block {
+        width: 60%;
+        font-family: Rockwell;
+        display: initial;
+    }
+    .card-body {
+        padding-top: 4%;
+    }
+</style>
+<section class="courses__list row center middle">
+    <div class="card course">
+        <div class="card-body">
+            <h1 class="title"> Menu Principal</h1>
+            @Html.ActionLink("Ver Listado de Ordenes", "OrderList", "Admin", null, new { @class = "btn btn-primary" })<br /><br />
+            @Html.ActionLink("Crear Orden de Compra", "FillOrderForm", "Customer", null , new { @class = "btn btn-primary" }) 
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
