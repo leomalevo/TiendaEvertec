@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="TiendaEvertecModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="orderProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IdOrder" Type="int" Nullable="false" />
+          <Property Name="ProductDescription" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ValuePerUnit" Type="decimal" Precision="18" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="customer_name" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="customer_surname" Type="varchar" MaxLength="80" Nullable="false" />
+          <Property Name="customer_document" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="customer_documenttype" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="customer_address" Type="varchar" MaxLength="150" />
+          <Property Name="customer_company" Type="varchar" MaxLength="50" />
+          <Property Name="customer_email" Type="varchar" MaxLength="120" Nullable="false" />
+          <Property Name="customer_mobile" Type="varchar" MaxLength="40" />
+          <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="created_at" Type="datetime" Nullable="false" />
+          <Property Name="updated_at" Type="datetime" Nullable="false" />
+          <Property Name="IdRequest" Type="int" />
+          <Property Name="OrderCost" Type="decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="FK_orderProducts_orders">
+          <End Role="orders" Type="Self.orders" Multiplicity="1" />
+          <End Role="orderProducts" Type="Self.orderProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderProducts">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TiendaEvertecModelStoreContainer">
+          <EntitySet Name="orderProducts" EntityType="Self.orderProducts" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="orders" EntityType="Self.orders" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_orderProducts_orders" Association="Self.FK_orderProducts_orders">
+            <End Role="orders" EntitySet="orders" />
+            <End Role="orderProducts" EntitySet="orderProducts" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TiendaEvertecModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="TiendaEvertecEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="orders" EntityType="TiendaEvertecModel.orders" />
+          <EntitySet Name="orderProducts" EntityType="TiendaEvertecModel.orderProducts" />
+          <AssociationSet Name="FK_orderProducts_orders" Association="TiendaEvertecModel.FK_orderProducts_orders">
+            <End Role="orders" EntitySet="orders" />
+            <End Role="orderProducts" EntitySet="orderProducts" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="orders">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="customer_name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="customer_email" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+          <Property Name="customer_mobile" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IdRequest" Type="Int32" />
+          <Property Name="customer_surname" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="customer_document" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="customer_documenttype" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="customer_address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="customer_company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="orderProducts" Relationship="TiendaEvertecModel.FK_orderProducts_orders" FromRole="orders" ToRole="orderProducts" />
+          <Property Name="OrderCost" Type="Decimal" Precision="18" Scale="0" />
+        </EntityType>
+        <EntityType Name="orderProducts">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IdOrder" Type="Int32" Nullable="false" />
+          <Property Name="ProductDescription" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ValuePerUnit" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+          <NavigationProperty Name="orders" Relationship="TiendaEvertecModel.FK_orderProducts_orders" FromRole="orderProducts" ToRole="orders" />
+        </EntityType>
+        <Association Name="FK_orderProducts_orders">
+          <End Type="TiendaEvertecModel.orders" Role="orders" Multiplicity="1" />
+          <End Type="TiendaEvertecModel.orderProducts" Role="orderProducts" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="orders">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="orderProducts">
+              <PropertyRef Name="IdOrder" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TiendaEvertecModelStoreContainer" CdmEntityContainer="TiendaEvertecEntities">
+          <EntitySetMapping Name="orders">
+            <EntityTypeMapping TypeName="TiendaEvertecModel.orders">
+              <MappingFragment StoreEntitySet="orders">
+                <ScalarProperty Name="OrderCost" ColumnName="OrderCost" />
+                <ScalarProperty Name="customer_company" ColumnName="customer_company" />
+                <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+                <ScalarProperty Name="customer_documenttype" ColumnName="customer_documenttype" />
+                <ScalarProperty Name="customer_document" ColumnName="customer_document" />
+                <ScalarProperty Name="customer_surname" ColumnName="customer_surname" />
+                <ScalarProperty Name="IdRequest" ColumnName="IdRequest" />
+                <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+                <ScalarProperty Name="created_at" ColumnName="created_at" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+                <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+                <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="orderProducts">
+            <EntityTypeMapping TypeName="TiendaEvertecModel.orderProducts">
+              <MappingFragment StoreEntitySet="orderProducts">
+                <ScalarProperty Name="ValuePerUnit" ColumnName="ValuePerUnit" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+                <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,19 @@
+﻿@model TiendaEvertec.Models.Order
+
+@{
+    ViewBag.Title = "Ver Order";
+}
+
+<h2>Ver Orden</h2>
+
+<div>
+    <hr />
+    @{
+        Html.RenderPartial("FullOrderDetail");
+    }
+
+    <div>
+        @Html.ActionLink("Ver Listado de Ordenes", "OrderList", "Admin", null, new { @class = "btn btn-default" })
+        @Html.ActionLink("Volver al menu", "Index", "Customer", null, htmlAttributes: new { @class = "btn btn-default" })
+    </div>
+</div>

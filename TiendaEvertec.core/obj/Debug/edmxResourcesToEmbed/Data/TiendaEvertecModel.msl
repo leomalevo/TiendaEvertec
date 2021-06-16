@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="TiendaEvertecModelStoreContainer" CdmEntityContainer="TiendaEvertecEntities">
+    <EntitySetMapping Name="orders">
+      <EntityTypeMapping TypeName="TiendaEvertecModel.orders">
+        <MappingFragment StoreEntitySet="orders">
+          <ScalarProperty Name="OrderCost" ColumnName="OrderCost" />
+          <ScalarProperty Name="customer_company" ColumnName="customer_company" />
+          <ScalarProperty Name="customer_address" ColumnName="customer_address" />
+          <ScalarProperty Name="customer_documenttype" ColumnName="customer_documenttype" />
+          <ScalarProperty Name="customer_document" ColumnName="customer_document" />
+          <ScalarProperty Name="customer_surname" ColumnName="customer_surname" />
+          <ScalarProperty Name="IdRequest" ColumnName="IdRequest" />
+          <ScalarProperty Name="updated_at" ColumnName="updated_at" />
+          <ScalarProperty Name="created_at" ColumnName="created_at" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="customer_mobile" ColumnName="customer_mobile" />
+          <ScalarProperty Name="customer_email" ColumnName="customer_email" />
+          <ScalarProperty Name="customer_name" ColumnName="customer_name" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="orderProducts">
+      <EntityTypeMapping TypeName="TiendaEvertecModel.orderProducts">
+        <MappingFragment StoreEntitySet="orderProducts">
+          <ScalarProperty Name="ValuePerUnit" ColumnName="ValuePerUnit" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ProductDescription" ColumnName="ProductDescription" />
+          <ScalarProperty Name="IdOrder" ColumnName="IdOrder" />
+          <ScalarProperty Name="Id" ColumnName="Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

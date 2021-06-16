@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="TiendaEvertecModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="TiendaEvertecEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="orders" EntityType="TiendaEvertecModel.orders" />
+    <EntitySet Name="orderProducts" EntityType="TiendaEvertecModel.orderProducts" />
+    <AssociationSet Name="FK_orderProducts_orders" Association="TiendaEvertecModel.FK_orderProducts_orders">
+      <End Role="orders" EntitySet="orders" />
+      <End Role="orderProducts" EntitySet="orderProducts" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="orders">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="customer_name" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="customer_email" Type="String" Nullable="false" MaxLength="120" FixedLength="false" Unicode="false" />
+    <Property Name="customer_mobile" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="created_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="updated_at" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="IdRequest" Type="Int32" />
+    <Property Name="customer_surname" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+    <Property Name="customer_document" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="customer_documenttype" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="customer_address" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="customer_company" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="orderProducts" Relationship="TiendaEvertecModel.FK_orderProducts_orders" FromRole="orders" ToRole="orderProducts" />
+    <Property Name="OrderCost" Type="Decimal" Precision="18" Scale="0" />
+  </EntityType>
+  <EntityType Name="orderProducts">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="IdOrder" Type="Int32" Nullable="false" />
+    <Property Name="ProductDescription" Type="String" Nullable="false" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="ValuePerUnit" Type="Decimal" Nullable="false" Precision="18" Scale="0" />
+    <NavigationProperty Name="orders" Relationship="TiendaEvertecModel.FK_orderProducts_orders" FromRole="orderProducts" ToRole="orders" />
+  </EntityType>
+  <Association Name="FK_orderProducts_orders">
+    <End Type="TiendaEvertecModel.orders" Role="orders" Multiplicity="1" />
+    <End Type="TiendaEvertecModel.orderProducts" Role="orderProducts" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="orders">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="orderProducts">
+        <PropertyRef Name="IdOrder" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

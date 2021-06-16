@@ -1,0 +1,23 @@
+2021-06-13 18:24:14.3181|OrderPending: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:24:28.4496|OrderRejected: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:24:35.2474|OrderSaved: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:24:40.9933|ViewOrder: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:25:25.6622|OrderPending: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:25:25.7459|OrderRejected: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:25:25.7459|OrderSaved: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:25:25.7459|ViewOrder: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:26:28.1766|OrderPending: SaverOrder: No connection string named 'TiendaEvertecEntities' could be found in the application config file.
+2021-06-13 18:28:24.8647|OrderPending: SaverOrder: Schema specified is not valid. Errors: 
+Data.TiendaEvertecModel.ssdl(2,2) : error 0152: No Entity Framework provider found for the ADO.NET provider with invariant name 'System.Data.SqlClient'. Make sure the provider is registered in the 'entityFramework' section of the application config file. See http://go.microsoft.com/fwlink/?LinkId=260882 for more information.
+2021-06-13 18:30:21.6821|OrderSaved: El valor no puede ser nulo.
+Nombre del parámetro: uriString
+2021-06-13 18:31:08.3862|OrderSaved: El valor no puede ser nulo.
+Nombre del parámetro: uriString
+2021-06-13 18:32:13.9881|OrderSaved: El valor no puede ser nulo.
+Nombre del parámetro: uriString
+2021-06-13 19:08:49.5483|OrderSaved: No se puede cargar el archivo o ensamblado 'RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.
+2021-06-13 19:09:34.4840|OrderSaved: No se puede cargar el archivo o ensamblado 'RestSharp, Version=100.0.0.0, Culture=neutral, PublicKeyToken=598062e77f915f75' ni una de sus dependencias. El sistema no puede encontrar el archivo especificado.
+2021-06-16 16:01:44.3987|Buy: GetUserAgent: Referencia a objeto no establecida como instancia de un objeto.
+2021-06-16 16:02:52.3450|Buy: GetUserAgent: Referencia a objeto no establecida como instancia de un objeto.
+2021-06-16 16:03:33.8674|FillOrderForm: GetUserAgent: Referencia a objeto no establecida como instancia de un objeto.
+2021-06-16 16:04:35.4892|Buy: GetUserAgent: Referencia a objeto no establecida como instancia de un objeto.
